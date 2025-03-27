@@ -6,12 +6,14 @@ import { Lock, User } from 'lucide-react';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './ui/sheet';
 import { Label } from './ui/label';
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +26,9 @@ const Login = () => {
         title: "Zalogowano pomyślnie",
         description: "Teraz możesz edytować swoje portfolio",
       });
+      
+      // Redirect to admin panel after successful login
+      navigate('/admin');
     }, 1500);
   };
 
