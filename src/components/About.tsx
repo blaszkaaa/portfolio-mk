@@ -1,66 +1,72 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const About = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+    // Initialize animation
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      
+      const container = containerRef.current;
+      const containerTop = container.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (containerTop < windowHeight * 0.75) {
+        container.classList.add('active');
       }
     };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial load
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-secondary/30">
+    <section id="about" className="py-24 bg-secondary/10">
       <div className="container">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2">
-              <div className="relative aspect-square w-full max-w-sm mx-auto">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/20"></div>
-                <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center overflow-hidden">
-                  <div className="w-3/4 h-3/4 rounded-full bg-gradient-to-r from-accent/20 to-accent/40 flex items-center justify-center text-5xl font-bold text-white">
-                    MK
-                  </div>
-                </div>
-                <div className="absolute -right-4 -bottom-4 w-24 h-24 rounded-xl bg-accent/10 backdrop-blur-sm border border-white"></div>
-                <div className="absolute -left-6 -top-6 w-12 h-12 rounded-lg bg-accent/20 backdrop-blur-sm border border-white"></div>
-              </div>
+        <div ref={containerRef} className="reveal">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">O mnie</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-lg">
+                Jestem <strong>technikiem programistą</strong> z certyfikatami INF.03 i INF.04, specjalizującym się w tworzeniu nowoczesnych interfejsów użytkownika. Moja pasja do kodowania i ciągłego rozwoju pozwala mi tworzyć intuicyjne i funkcjonalne aplikacje webowe.
+              </p>
+              
+              <p className="text-lg">
+                Posiadam doświadczenie w pracy z React, TypeScript i nowoczesnym ekosystemem front-endowym. Ciągle rozwijam swoje umiejętności, aby być na bieżąco z najnowszymi technologiami i trendami.
+              </p>
+              
+              <p className="text-lg">
+                Poza programowaniem, interesuje mnie również UX/UI design oraz dostępność aplikacji webowych. Wierzę, że połączenie dobrego kodu z przemyślanym designem jest kluczem do tworzenia doskonałych produktów cyfrowych.
+              </p>
             </div>
             
-            <div className="md:w-1/2" ref={sectionRef}>
-              <div className="reveal">
-                <h2 className="text-3xl font-bold mb-6">O mnie</h2>
-                <p className="text-muted-foreground mb-4">
-                  Jestem technikiem programistą z dyplomami INF.03 (Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych)
-                  oraz INF.04 (Projektowanie, programowanie i testowanie aplikacji).
-                </p>
-                <p className="text-muted-foreground mb-6">
-                  Moją specjalizacją jest frontend development, gdzie łączę wiedzę techniczną z kreatywnością, tworząc nowoczesne i intuicyjne interfejsy użytkownika.
-                  Nieustannie rozwijam swoje umiejętności, śledząc najnowsze trendy i technologie w świecie web developmentu.
-                </p>
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-border">
+              <h3 className="text-xl font-semibold mb-4">Edukacja</h3>
+              
+              <div className="space-y-4">
+                <div className="flex flex-col">
+                  <span className="text-accent font-medium">2019 - 2023</span>
+                  <span className="font-medium">Technikum Programistyczne</span>
+                  <span className="text-muted-foreground">Technik Programista</span>
+                </div>
                 
-                <div className="flex flex-wrap gap-3 mt-6">
-                  <span className="badge">Technik Programista</span>
-                  <span className="badge">INF.03</span>
-                  <span className="badge">INF.04</span>
-                  <span className="badge">Frontend Developer</span>
+                <div className="border-t pt-4">
+                  <h4 className="font-semibold mb-3">Certyfikaty</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-accent"></span>
+                      <span>INF.03 - Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-accent"></span>
+                      <span>INF.04 - Projektowanie, programowanie i testowanie aplikacji</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
