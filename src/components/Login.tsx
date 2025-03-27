@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Lock, User } from 'lucide-react';
@@ -7,7 +7,6 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Label } from './ui/label';
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from 'react-router-dom';
-import { supabase } from "@/integrations/supabase/client";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,54 +14,14 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  // Only allow this specific email to log in
-  const ALLOWED_EMAIL = 'mateuszniema1@gmail.com';
-
-  useEffect(() => {
-    // Check if user is already logged in
-    const checkSession = async () => {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        setIsLoggedIn(true);
-      }
-    };
-
-    checkSession();
-
-    // Setup auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    try {
-      // Check if the email is the allowed one
-      if (email !== ALLOWED_EMAIL) {
-        throw new Error("Dostęp zabroniony. Tylko administrator może się zalogować.");
-      }
-
-      // Sign in with Supabase
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
+    // Simulate login process
+    setTimeout(() => {
+      setIsLoading(false);
       toast({
         title: "Zalogowano pomyślnie",
         description: "Teraz możesz edytować swoje portfolio",
@@ -70,50 +29,8 @@ const Login = () => {
       
       // Redirect to admin panel after successful login
       navigate('/admin');
-    } catch (error: any) {
-      toast({
-        title: "Błąd logowania",
-        description: error.message || "Nie udało się zalogować. Sprawdź dane logowania.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    }, 1500);
   };
-
-  const handleSignUp = async () => {
-    setIsLoading(true);
-    
-    try {
-      // Prevent any sign-ups
-      toast({
-        title: "Rejestracja zablokowana",
-        description: "Tylko administrator może korzystać z tego systemu.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // If already logged in, show a button to go to admin panel
-  if (isLoggedIn) {
-    return (
-      <section id="login" className="py-16 bg-secondary/20">
-        <div className="container">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto reveal">
-            <h2 className="text-3xl font-bold mb-4">Panel Administratora</h2>
-            <p className="text-muted-foreground mb-8">
-              Jesteś już zalogowany. Przejdź do panelu administracyjnego, aby zarządzać portfolio.
-            </p>
-            <Button onClick={() => navigate('/admin')} className="flex items-center gap-2">
-              <Lock size={18} /> Przejdź do panelu administracyjnego
-            </Button>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="login" className="py-16 bg-secondary/20">
@@ -145,7 +62,7 @@ const Login = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="mateuszniema1@gmail.com"
+                      placeholder="twoj@email.com"
                       className="pl-10"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
