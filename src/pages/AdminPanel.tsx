@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, LogOut, Edit, Plus, Trash2, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +10,6 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Label } from '@/components/ui/label';
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { useForm } from 'react-hook-form';
 
 interface Project {
   id: string;
@@ -49,16 +46,36 @@ const AdminPanel = () => {
           variant: "destructive",
         });
         navigate('/');
-      } else {
-        setIsChecking(false);
-        fetchData();
+        return;
       }
+      
+      // Verify this is the allowed admin user
+      const email = data.session.user.email;
+      if (email !== 'mateuszniema1@gmail.com') {
+        toast({
+          title: "Dostęp zabroniony",
+          description: "Tylko administrator może uzyskać dostęp do panelu administracyjnego",
+          variant: "destructive",
+        });
+        
+        // Force logout
+        await supabase.auth.signOut();
+        navigate('/');
+        return;
+      }
+      
+      setIsChecking(false);
+      fetchData();
     };
     
     checkSession();
     
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (!session) {
+        navigate('/');
+      } else if (session.user.email !== 'mateuszniema1@gmail.com') {
+        // If somehow a non-admin user gets a session, log them out
+        supabase.auth.signOut();
         navigate('/');
       }
     });

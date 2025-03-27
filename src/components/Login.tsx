@@ -17,6 +17,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
+  // Only allow this specific email to log in
+  const ALLOWED_EMAIL = 'mateuszniema1@gmail.com';
+
   useEffect(() => {
     // Check if user is already logged in
     const checkSession = async () => {
@@ -47,6 +50,11 @@ const Login = () => {
     setIsLoading(true);
     
     try {
+      // Check if the email is the allowed one
+      if (email !== ALLOWED_EMAIL) {
+        throw new Error("Dostęp zabroniony. Tylko administrator może się zalogować.");
+      }
+
       // Sign in with Supabase
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -77,27 +85,10 @@ const Login = () => {
     setIsLoading(true);
     
     try {
-      // Sign up with Supabase
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            is_admin: true,
-          }
-        }
-      });
-
-      if (error) throw error;
-
+      // Prevent any sign-ups
       toast({
-        title: "Rejestracja zakończona pomyślnie",
-        description: "Sprawdź swoją skrzynkę email, aby potwierdzić konto.",
-      });
-    } catch (error: any) {
-      toast({
-        title: "Błąd rejestracji",
-        description: error.message || "Nie udało się zarejestrować. Spróbuj ponownie.",
+        title: "Rejestracja zablokowana",
+        description: "Tylko administrator może korzystać z tego systemu.",
         variant: "destructive"
       });
     } finally {
@@ -154,7 +145,7 @@ const Login = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="twoj@email.com"
+                      placeholder="mateuszniema1@gmail.com"
                       className="pl-10"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -184,19 +175,6 @@ const Login = () => {
                 >
                   {isLoading ? 'Logowanie...' : 'Zaloguj się'}
                 </Button>
-                <div className="text-center mt-4">
-                  <p className="text-sm text-muted-foreground">
-                    Nie masz jeszcze konta? 
-                  </p>
-                  <Button 
-                    type="button" 
-                    variant="link" 
-                    onClick={handleSignUp}
-                    disabled={isLoading}
-                  >
-                    Zarejestruj się
-                  </Button>
-                </div>
               </form>
             </SheetContent>
           </Sheet>
