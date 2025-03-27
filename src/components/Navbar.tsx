@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Lock } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -43,12 +43,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="#login" 
-            className="flex items-center gap-1 text-sm font-medium py-1.5 px-4 rounded-full bg-accent text-white hover:bg-accent/90 transition-colors"
-          >
-            <Lock size={14} /> Admin
-          </a>
         </nav>
         
         <button 
@@ -72,13 +66,6 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a 
-                href="#login"
-                className="flex items-center gap-2 text-xl font-medium py-2 px-4 hover:bg-accent hover:text-white rounded-lg transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Lock size={18} /> Panel Administratora
-              </a>
             </div>
           </div>
         )}
