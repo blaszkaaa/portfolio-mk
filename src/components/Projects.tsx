@@ -15,23 +15,23 @@ const Projects = () => {
     {
       title: 'E-commerce Dashboard',
       description: 'Panel administracyjny dla sklepu internetowego z analizą danych sprzedażowych i zarządzaniem produktami.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+      technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
-      link: '#'
+      link: 'https://blaszkaaa.github.io/E-commerce-Dashboard/'
     },
     {
       title: 'Aplikacja do zarządzania wydatkami',
       description: 'Aplikacja webowa pomagająca śledzić wydatki osobiste i tworzyć budżety miesięczne.',
-      technologies: ['Vue.js', 'Node.js', 'Express', 'MongoDB'],
+      technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
-      link: '#'
+      link: 'https://blaszkaaa.github.io/expensify-smart-main/'
     },
     {
-      title: 'System rezerwacji online',
-      description: 'System rezerwacji dla restauracji umożliwiający zarządzanie stolikami i przyjmowanie rezerwacji online.',
-      technologies: ['React', 'Next.js', 'PostgreSQL', 'Stripe'],
+      title: 'Domki modułowe - nowoczesne rozwiązania',
+      description: 'Strona internetowa poświęcona domkom modułowym, które oferują szybkie, ekologiczne i nowoczesne rozwiązania budowlane. Dowiedz się więcej o ich zaletach, procesie budowy oraz możliwościach personalizacji.',
+      technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
-      link: '#'
+      link: 'https://blaszkaaa.github.io/DomekLukas/'
     }
   ];
 
