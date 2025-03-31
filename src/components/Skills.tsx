@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Code, Computer, Database, Image } from 'lucide-react';
 
@@ -45,7 +44,7 @@ const Skills = () => {
       skills: ['Node.js', 'Express', 'PHP', 'MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'API Development']
     },
     {
-      name: 'Narzędzia',
+      name: 'Tools',
       icon: <Computer className="text-accent" size={24} />,
       skills: ['Git', 'GitHub', 'Webpack', 'Vite', 'VS Code', 'Docker', 'Figma', 'Postman', 'Terminal']
     },
@@ -60,10 +59,10 @@ const Skills = () => {
     <section id="skills" ref={sectionRef} className="py-24 bg-secondary/30">
       <div className="container">
         <div className="max-w-4xl mx-auto mb-16 text-center">
-          <h2 className="font-bold mb-4">Umiejętności</h2>
+          <h2 className="font-bold mb-4">Skills</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Zdobyłem solidne umiejętności w różnych technologiach programistycznych, co pozwala mi na tworzenie 
-            kompleksowych aplikacji webowych od strony wizualnej po funkcjonalność.
+            I have acquired solid skills in various programming technologies, allowing me to create
+            comprehensive web applications from visual design to functionality.
           </p>
         </div>
         
@@ -93,16 +92,16 @@ const Skills = () => {
         </div>
         
         <div className="mt-16 text-center reveal">
-          <h3 className="text-xl font-semibold mb-6">Certyfikaty</h3>
+          <h3 className="text-xl font-semibold mb-6">Certificates</h3>
           <div className="inline-flex flex-wrap justify-center gap-6">
             <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
               <div className="text-xl font-bold text-accent mb-2">INF.03</div>
-              <p className="text-sm text-muted-foreground">Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych</p>
+              <p className="text-sm text-muted-foreground">Creating and administering websites, web applications and databases</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
               <div className="text-xl font-bold text-accent mb-2">INF.04</div>
-              <p className="text-sm text-muted-foreground">Projektowanie, programowanie i testowanie aplikacji</p>
+              <p className="text-sm text-muted-foreground">Designing, programming and testing applications</p>
             </div>
           </div>
         </div>

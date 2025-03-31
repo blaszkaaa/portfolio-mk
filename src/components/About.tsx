@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 const About = () => {
@@ -46,18 +45,18 @@ const About = () => {
             
             <div className="md:w-1/2" ref={sectionRef}>
               <div className="reveal">
-                <h2 className="text-3xl font-bold mb-6">O mnie</h2>
+                <h2 className="text-3xl font-bold mb-6">About Me</h2>
                 <p className="text-muted-foreground mb-4">
-                  Jestem technikiem programistą z dyplomami INF.03 (Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych)
-                  oraz INF.04 (Projektowanie, programowanie i testowanie aplikacji).
+                  I am a programming technician with INF.03 (Creating and administering websites, web applications and databases)
+                  and INF.04 (Designing, programming and testing applications) diplomas.
                 </p>
                 <p className="text-muted-foreground mb-6">
-                  Moją specjalizacją jest frontend development, gdzie łączę wiedzę techniczną z kreatywnością, tworząc nowoczesne i intuicyjne interfejsy użytkownika.
-                  Nieustannie rozwijam swoje umiejętności, śledząc najnowsze trendy i technologie w świecie web developmentu.
+                  My specialization is frontend development, where I combine technical knowledge with creativity to create modern and intuitive user interfaces.
+                  I continuously develop my skills by following the latest trends and technologies in the world of web development.
                 </p>
                 
                 <div className="flex flex-wrap gap-3 mt-6">
-                  <span className="badge">Technik Programista</span>
+                  <span className="badge">Programming Technician</span>
                   <span className="badge">INF.03</span>
                   <span className="badge">INF.04</span>
                   <span className="badge">Frontend Developer</span>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -14,21 +13,21 @@ const Projects = () => {
   const projects: Project[] = [
     {
       title: 'E-commerce Dashboard',
-      description: 'Panel administracyjny dla sklepu internetowego z analizą danych sprzedażowych i zarządzaniem produktami.',
+      description: 'Admin panel for an online store with sales data analysis and product management.',
       technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
       link: 'https://blaszkaaa.github.io/E-commerce-Dashboard/'
     },
     {
-      title: 'Aplikacja do zarządzania wydatkami',
-      description: 'Aplikacja webowa pomagająca śledzić wydatki osobiste i tworzyć budżety miesięczne.',
+      title: 'Expense Management App',
+      description: 'Web application that helps track personal expenses and create monthly budgets.',
       technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
       link: 'https://blaszkaaa.github.io/expensify-smart-main/'
     },
     {
-      title: 'Domki modułowe - nowoczesne rozwiązania',
-      description: 'Strona internetowa poświęcona domkom modułowym, które oferują szybkie, ekologiczne i nowoczesne rozwiązania budowlane. Dowiedz się więcej o ich zaletach, procesie budowy oraz możliwościach personalizacji.',
+      title: 'Modular Houses - Modern Solutions',
+      description: 'Website dedicated to modular houses that offer quick, eco-friendly, and modern building solutions. Learn more about their advantages, construction process, and customization options.',
       technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
       link: 'https://blaszkaaa.github.io/DomekLukas/'
@@ -39,10 +38,10 @@ const Projects = () => {
     <section id="projects" className="py-24">
       <div className="container">
         <div className="max-w-4xl mx-auto mb-16 text-center">
-          <h2 className="font-bold mb-4">Moje projekty</h2>
+          <h2 className="font-bold mb-4">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Poniżej przedstawiam wybrane projekty, które zrealizowałem. Każdy z nich prezentuje moje 
-            umiejętności programistyczne oraz zdolność do tworzenia kompleksowych rozwiązań.
+            Below are selected projects I have completed. Each one showcases my programming skills
+            and ability to create comprehensive solutions.
           </p>
         </div>
         
@@ -78,7 +77,7 @@ const Projects = () => {
                   href={project.link} 
                   className="inline-flex items-center text-sm font-medium text-accent hover:underline"
                 >
-                  Zobacz więcej
+                  See more
                   <ArrowRight size={14} className="ml-1" />
                 </a>
               </div>

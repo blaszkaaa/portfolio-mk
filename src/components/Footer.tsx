@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer = () => {
@@ -25,7 +24,7 @@ const Footer = () => {
             </div>
             
             <p className="text-sm text-muted-foreground">
-              &copy; {currentYear} Mateusz Kaźmierczak. Wszelkie prawa zastrzeżone.
+              &copy; {currentYear} Mateusz Kaźmierczak. All rights reserved.
             </p>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { toast } from "sonner";
@@ -25,8 +24,8 @@ const Contact = () => {
     
     // Simulate form submission
     setTimeout(() => {
-      toast.success("Wiadomość została wysłana!", {
-        description: "Dziękuję za kontakt. Odpowiem tak szybko, jak to możliwe."
+      toast.success("Message has been sent!", {
+        description: "Thank you for contacting me. I will respond as soon as possible."
       });
       
       setFormState({
@@ -45,10 +44,10 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <div className="max-w-md">
-              <h2 className="font-bold mb-4">Kontakt</h2>
+              <h2 className="font-bold mb-4">Contact</h2>
               <p className="text-muted-foreground mb-6">
-                Jesteś zainteresowany współpracą lub masz pytania odnośnie moich projektów? 
-                Skontaktuj się ze mną poprzez formularz lub bezpośrednio przez e-mail.
+                Are you interested in collaboration or have questions about my projects?
+                Contact me through the form or directly via email.
               </p>
               
               <div className="mb-8">
@@ -67,19 +66,19 @@ const Contact = () => {
                 <div className="relative">
                   <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-accent/5 to-accent/20 blur-3xl"></div>
                   <div className="relative p-8 rounded-2xl bg-white">
-                    <p className="text-lg font-medium mb-4">Jestem otwarty na:</p>
+                    <p className="text-lg font-medium mb-4">I'm open to:</p>
                     <ul className="space-y-3">
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-2"></span>
-                        <span>Projekty freelancerskie</span>
+                        <span>Freelance projects</span>
                       </li>
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-2"></span>
-                        <span>Oferty pracy na pełen etat</span>
+                        <span>Full-time job offers</span>
                       </li>
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-2"></span>
-                        <span>Współpracę przy ciekawych projektach</span>
+                        <span>Collaboration on interesting projects</span>
                       </li>
                     </ul>
                   </div>
@@ -93,7 +92,7 @@ const Contact = () => {
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
-                    Imię i nazwisko
+                    Full name
                   </label>
                   <input
                     type="text"
@@ -123,7 +122,7 @@ const Contact = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-1">
-                    Wiadomość
+                    Message
                   </label>
                   <textarea
                     id="message"
@@ -147,11 +146,11 @@ const Contact = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Wysyłanie...
+                      Sending...
                     </span>
                   ) : (
                     <span className="flex items-center">
-                      Wyślij wiadomość
+                      Send message
                       <Send size={16} className="ml-2" />
                     </span>
                   )}

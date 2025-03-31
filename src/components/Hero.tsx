@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Hero = () => {
   
   useEffect(() => {
     // Animate the text with a typewriter effect
-    const text = "Programista z pasją do tworzenia.";
+    const text = "Programmer with a passion for creation.";
     const element = textRef.current;
     let index = 0;
     
@@ -42,16 +41,16 @@ const Hero = () => {
           <h2 ref={textRef} className="text-xl sm:text-2xl font-medium text-muted-foreground min-h-[2em]"></h2>
           
           <p className="mt-8 text-lg text-muted-foreground max-w-xl animate-fade-in" style={{animationDelay: '300ms'}}>
-            Technik programista z certyfikatami INF.03 oraz INF.04, specjalizujący się w tworzeniu nowoczesnych 
-            interfejsów użytkownika i aplikacji webowych.
+            Programming technician with INF.03 and INF.04 certificates, specializing in creating modern 
+            user interfaces and web applications.
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-in" style={{animationDelay: '400ms'}}>
             <a href="#projects" className="button-animated bg-primary text-white px-6 py-3 rounded-lg font-medium">
-              Zobacz moje projekty
+              See my projects
             </a>
             <a href="#contact" className="button-animated border border-primary/20 px-6 py-3 rounded-lg font-medium">
-              Skontaktuj się
+              Get in touch
             </a>
           </div>
         </div>
@@ -61,7 +60,7 @@ const Hero = () => {
         href="#about" 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-float"
       >
-        <span className="text-sm font-medium mb-2">Przewiń w dół</span>
+        <span className="text-sm font-medium mb-2">Scroll down</span>
         <ArrowDown className="animate-bounce" size={20} />
       </a>
     </section>
