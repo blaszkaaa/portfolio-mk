@@ -31,7 +31,32 @@ const Projects = () => {
       technologies: ['React', 'TypeScript'],
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&h=800&q=80',
       link: 'https://blaszkaaa.github.io/DomekLukas/'
-    }
+    },
+      {
+        title: "Interior Design Studio",
+        description: "Elegant website for an interior design studio showcasing their portfolio, services, and blog with design tips and trends.",
+        technologies: ["React", "Tailwind CSS"],
+        imageUrl: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop&quot",
+        link: "https://blaszkaaa.github.io/portfolioapp1/"
+      },
+      {
+        title: "Coffee Roastery & Café",
+        description: "One-page website for a coffee roastery and café showcasing their menu, online store, and blog about coffee culture.",
+        technologies: ["React", "Context API"],
+        imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80&quot",
+        link: "https://blaszkaaa.github.io/portfolioapp2/"
+      },
+      {
+        title: "Photography Studio",
+        description: "Modern one-page website for a photography studio with an interactive portfolio, service descriptions, and client testimonials.",
+        technologies: ["React", "Framer Motion"],
+        imageUrl: "https://images.unsplash.com/photo-1566275529824-cca6d008f3da?q=80&w=2074&auto=format&fit=crop&quot",
+        link: "https://blaszkaaa.github.io/-portfolioapp3/"
+      }
+    
+    
+
+
   ];
 
   return (
